@@ -1,0 +1,21 @@
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func main() {
+	var wg sync.WaitGroup
+	wg.Go(func() {
+		for i := 1; i < 6; i++ {
+			fmt.Println(i)
+			time.Sleep(time.Second)
+
+		}
+	})
+	wg.Wait()
+	fmt.Println("Конец")
+
+}
